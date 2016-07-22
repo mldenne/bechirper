@@ -9,10 +9,23 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
+  def login
+    @user = User.find_by(username: params[:username])
+    if @user
+      if @user.authenticate(params[:password])
+        render json: {auth_token: @user.auth_token}
+      else
+        render json: {errors: "Incorrect password"}, :status => 422
+      end
+    else
+      render json: {errors: "User not found"}, :status => 422
+    end
+  end
+
   def show
     render json: @user
   end
-
+  
   # POST /users
   def create
     @user = User.new(user_params)
