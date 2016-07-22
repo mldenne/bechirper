@@ -15,17 +15,17 @@ class UsersController < ApplicationController
       if @user.authenticate(params[:password])
         render json: {auth_token: @user.auth_token}
       else
-        render json: {errors: "Incorrect password"}, :status => 422
+        render json: {errors: "Incorrect password"}, :status => 419
       end
     else
-      render json: {errors: "User not found"}, :status => 422
+      render json: {errors: "User not found"}, :status => 421
     end
   end
 
   def show
     render json: @user
   end
-  
+
   # POST /users
   def create
     @user = User.new(user_params)

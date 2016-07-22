@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
+  before_action :require_user
 
   # GET /posts
   def index
@@ -11,6 +12,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   def show
     render json: @post
+  end
+
+  def timeline
+
   end
 
   # POST /posts
