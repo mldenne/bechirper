@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem "socialization"
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'pry-rails', '~> 0.3.4'
-
+gem 'faker'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
