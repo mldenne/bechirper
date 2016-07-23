@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user
       if @user.authenticate(params[:password])
-        render json: {auth_token: @user.auth_token}
+        render json: @user
       else
         render json: {errors: "Incorrect password"}, :status => 419
       end
@@ -49,6 +49,12 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+  end
+
+  def follow
+  end
+
+  def unfollow
   end
 
   private
