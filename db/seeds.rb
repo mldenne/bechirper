@@ -12,6 +12,7 @@
     username: Faker::Internet.user_name,
     email: Faker::Internet.email,
     bio: Faker::Lorem.paragraph,
+    bio_image: Faker::Avatar.image("my-own-slug", "400x400"),
     password: "password"
   )
   20.times do
