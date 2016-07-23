@@ -4,9 +4,9 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = current_user.timeline_posts
 
-    render json: @posts
+    render json: @posts, scope: current_user, scope_name: :current_user
   end
 
   # GET /posts/1
@@ -14,13 +14,9 @@ class PostsController < ApplicationController
     render json: @post
   end
 
-  def timeline
-
-  end
-
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     if @post.save
       render json: @post, status: :created, location: @post
@@ -51,6 +47,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:body, :user_id)
+      params.permit(:body)
     end
 end

@@ -1,10 +1,10 @@
 class Post < ApplicationRecord
 
-  belongs_to :user, optional: true
-  validates :body, presence: true
+  belongs_to :user
+  validates :body, presence: true, length: {maximum: 160}
 
   def self.timeline(user)
-    following_ids = user.followees.pluck(:id)
+    following_ids = user.followees(User).pluck(:id)
     all_ids = following_ids << user.id
     Post.where(user_id: all_ids).order("created_at DESC")
   end

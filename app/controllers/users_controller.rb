@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.all
+    @users = User.all.where.not(id: current_user.id)
 
-    render json: @users
+    render json: @users, each_serializer: UserCondensedSerializer, scope: current_user, scope_name: :current_user
   end
 
   # GET /users/1
