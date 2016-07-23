@@ -15,3 +15,9 @@
     password: Faker::Internet.password
   )
 end
+
+20.times do
+  Post.create!(
+    body: Faker::Lorem.characters(160)
+  )
+end
