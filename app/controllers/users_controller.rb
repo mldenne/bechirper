@@ -51,12 +51,6 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
-  def follow
-    current_user.toggle_follow!(set_user)
-
-    render json: @user, each_serializer: UserCondensedSerializer, scope: current_user, scope_name: :current_user
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
