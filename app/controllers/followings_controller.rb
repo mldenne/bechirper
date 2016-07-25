@@ -3,9 +3,13 @@ class FollowingsController < ApplicationController
   before_action :load_user
 
   def create
-    current_user.toggle_follow!(@user)
-    
-    render json: @user.reload
+    current_user.follow!(@user)
+    render json: @user.reload, serializer: UserCondensedSerializer, scope: current_user, scope_name: :current_user
+  end
+
+  def destroy
+    current_user.unfollow!(@user)
+    render json: @user.reload, serializer: UserCondensedSerializer, scope: current_user, scope_name: :current_user
   end
 
 
