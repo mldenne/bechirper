@@ -4,7 +4,7 @@ class FollowingsController < ApplicationController
 
   def create
     current_user.follow!(@user)
-    UserNotifier.user_being_followed_email(current_user).deliver
+    UserNotifierMailer.user_being_followed_email(@user, current_user).deliver_later
     render json: @user.reload, serializer: UserCondensedSerializer, scope: current_user, scope_name: :current_user
   end
 
