@@ -15,9 +15,10 @@
     bio_image: Faker::Avatar.image("my-own-slug", "400x400"),
     password: "password"
   )
-  20.times do
-    Post.create!(user: user,
-      body: Faker::Lorem.characters(160)
-    )
-  end
+end
+
+20.times do
+  Post.create!(user: user,
+    body: Faker::Lorem.characters(160)
+  )
 end

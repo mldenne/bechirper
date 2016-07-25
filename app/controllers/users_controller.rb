@@ -52,9 +52,9 @@ class UsersController < ApplicationController
   end
 
   def follow
-  end
+    current_user.toggle_follow!(set_user)
 
-  def unfollow
+    render json: @user, each_serializer: UserCondensedSerializer, scope: current_user, scope_name: :current_user
   end
 
   private
