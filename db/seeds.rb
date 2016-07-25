@@ -12,13 +12,14 @@
     username: Faker::Internet.user_name,
     email: Faker::Internet.email,
     bio: Faker::Lorem.paragraph,
-    bio_image: Faker::Avatar.image("my-own-slug", "400x400"),
+    bio_image: "https://unsplash.it/400/400?random",
     password: "password"
   )
-end
 
-20.times do
-  Post.create!(user: user,
-    body: Faker::Lorem.characters(160)
-  )
+  20.times do
+    Post.create!(
+      user: user,
+      body: "This is a test of the emergency broadcast system. In case of a real emergency, break glass and run!"
+    )
+  end
 end

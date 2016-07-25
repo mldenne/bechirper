@@ -4,6 +4,7 @@ gem "socialization"
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'pry-rails', '~> 0.3.4'
 gem 'faker'
+gem "figaro"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
