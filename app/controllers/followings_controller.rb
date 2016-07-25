@@ -4,6 +4,7 @@ class FollowingsController < ApplicationController
 
   def create
     current_user.toggle_follow!(@user)
+    
     render json: @user.reload
   end
 
@@ -13,6 +14,7 @@ class FollowingsController < ApplicationController
       @user
     else
       render json: {error: "User not found or params[:id] missing"}, status: :unprocessable_entity
+    end
   end
 
 end

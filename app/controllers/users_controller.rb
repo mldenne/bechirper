@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :require_user, only: [:show, :index]
 
   # GET /users
   def index
@@ -23,7 +23,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @user
+    if params[:id] == 'me'
+      @user = current_user
+      render json: @user
+    else
+      @user = User.find(params[:id])
+      render json: @user
+    end
   end
 
   # POST /users
@@ -53,9 +59,6 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
     # Only allow a trusted parameter "white list" through.
     def user_params
