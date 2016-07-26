@@ -11,20 +11,23 @@ Chirp is an Indianapolis Iron Yard Project created in an effort to simulate an A
 Basic Models
 ------------
 1. User
-* once created, identified by auth_token
-* has many posts
-* acts as follower
-* acts as followable
+
+  * once created, identified by auth_token
+  * has many posts
+  * acts as follower
+  * acts as followable
 
 2. Post
-* may be no longer than 160 characters
-* includes posts for current user
-* includes posts of the user current user is following
-* belongs to user
+
+  * may be no longer than 160 characters
+  * includes posts for current user
+  * includes posts of the user current user is following
+  * belongs to user
 
 3. Follow
-* users may follow or be followed by other users
-* gem Socialization allows for follow, unfollow, followees count, and followers count
+
+  * users may follow or be followed by other users
+  * gem Socialization allows for follow, unfollow, followees count, and followers count
 
 Endpoints
 ---------
