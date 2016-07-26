@@ -40,7 +40,7 @@ POST /users/login
 * password (required)
 * verify with auth_token
 
-{
+`{
   "user": {
     "id": 106,
     "name": "example",
@@ -52,7 +52,7 @@ POST /users/login
     "followers_count": 0,
     "followees_count": 0
   }
-}
+}`
 
 ### Signup
 POST /users
@@ -63,7 +63,7 @@ POST /users
 * password (required)
 * creates auth_token upon successful signup
 
-{
+`{
   "user": {
     "id": 106,
     "name": "example",
@@ -75,9 +75,9 @@ POST /users
     "followers_count": 0,
     "followees_count": 0
   }
-}
+}`
 
-{
+`{
   "password": [
     "can't be blank"
   ],
@@ -87,7 +87,7 @@ POST /users
   "email": [
     "can't be blank"
   ]
-}
+}`
 
 ### Timeline
 Logged in user posts plus the posts of the users the logged in user is following
