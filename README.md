@@ -2,7 +2,8 @@ Chirp: An API-driven social network
 ===================================
 Chirp is an Indianapolis Iron Yard Project created in an effort to simulate an API-driven social network. The project is a joint effort between the Front-End and Back-End Engineers in training. This markdown file is a breakdown of the Back-End elements of the project.
 
-### Web application development platform: Rails.
+### Web application development platform:
+* Rails
 
 ### Notable gems used in development:
 * Socialization - allows any ActiveRecord model to Follow, Like and/or Mention any other model.
