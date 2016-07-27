@@ -1,5 +1,5 @@
 class UserAllSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id,
     :name,
     :username,
     :bio_image,
