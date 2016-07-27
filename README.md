@@ -98,6 +98,12 @@ GET /posts
 * body
 * created_at
 
+Display of all posts with no current user
+GET /posts
+
+* body
+* created_at
+
 ### Follow
 POST /followings
 
