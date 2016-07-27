@@ -1,12 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
-  before_action :require_user
+  before_action :require_user, except: [:index]
 
   # GET /posts
   def index
-    @posts = current_user.timeline_posts
-
-    render json: @posts, scope: current_user, scope_name: :current_user
+    if current_user
+      @posts = current_user.timeline_posts
+      render json: @posts, scope: current_user, scope_name: :current_user
+    else
+      @posts = Post.all
+      render json: @posts, serializer: PostAllSerializer
+    end
   end
 
   # GET /posts/1
