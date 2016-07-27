@@ -9,7 +9,7 @@ class PostsController < ApplicationController
       render json: @posts, scope: current_user, scope_name: :current_user
     else
       @posts = Post.all
-      render json: @posts, serializer: PostAllSerializer
+      render json: @posts, each_serializer: PostAllSerializer
     end
   end
 
